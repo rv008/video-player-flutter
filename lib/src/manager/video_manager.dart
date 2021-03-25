@@ -58,7 +58,7 @@ class FlickVideoManager extends ChangeNotifier {
 
   /// Is current video initialized.
   bool get isVideoInitialized =>
-      videoPlayerController?.value?.isInitialized ?? false;
+      videoPlayerController?.value?.initialized ?? false;
   bool get isPlaying => videoPlayerController?.value?.isPlaying ?? false;
 
   /// Cancel the current auto player timer with option of playing the next video directly.
@@ -133,7 +133,7 @@ class FlickVideoManager extends ChangeNotifier {
 
     // Initialize the video if not initialized
     // (User can initialize the video while passing to flick).
-    if (!videoPlayerController.value.isInitialized && autoInitialize) {
+    if (!videoPlayerController.value.initialized && autoInitialize) {
       try {
         await videoPlayerController.initialize();
       } catch (err) {
